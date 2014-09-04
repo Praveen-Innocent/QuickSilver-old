@@ -10,15 +10,15 @@ class ConfigOverride {
 		Config :: $Database = 'schoolneuron';
 		
 		//URLs
-		Config :: $URL = 'http://localhost/schgoogle/schgoogle/in/';
-		Config :: $base_url = 'http://localhost/schgoogle/schgoogle/in/home/';
-		Config :: $js_url = 'http://localhost/QuickSilver/js/';
-		Config :: $css_url = 'http://localhost/QuickSilver/css/';
-		Config :: $images_url = 'http://localhost/QuickSilver/css/';
+		Config :: $URL = 'http://new.local/';
+		Config :: $base_url = 'http://new.local/schgoogle/schgoogle/in/home/';
+		Config :: $js_url = 'http://new.local/QuickSilver/js/';
+		Config :: $css_url = 'http://new.local/QuickSilver/css/';
+		Config :: $images_url = 'http://new.local/QuickSilver/css/';
 	}
 	
 	public static function is_local() {
-		$serverList = array('localhost', '127.0.0.1');
+		$serverList = array('localhost','new.local', '127.0.0.1');
 		if(in_array($_SERVER['HTTP_HOST'], $serverList)) {
 			return true;
 		}

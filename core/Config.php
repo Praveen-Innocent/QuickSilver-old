@@ -11,7 +11,7 @@ class Config {
 	public static $URL = "http://in.schoolneuron.com/";
 	public static $base_url = "http://in.schoolneuron.com/home/";
 	public static $js_url = "http://in.schoolneuron.com/home/";
-	public static $css_url = "http://in.schoolneuron.com/home/";
+	public static $css_url = "http://new.local/css/";
 	public static $images_url = "http://in.schoolneuron.com/home/";
 	
 	

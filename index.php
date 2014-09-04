@@ -3,7 +3,7 @@
 <?php require_once('header.php'); ?>
 </head>
 <body>
-<?php _e($msg); $r = $user->All(); 
+<?php //_e($msg); $r = $user->All(); 
 //_list($r);
 //print $r;
  //$j = json_decode($r); 

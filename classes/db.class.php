@@ -22,7 +22,7 @@ class DB {
 			return false;
 		}
 		
-		self::$instance = new self($dbOptions);
+		//self::$instance = new self($dbOptions);
 	}
 	
 	

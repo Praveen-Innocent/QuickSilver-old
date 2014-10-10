@@ -76,5 +76,50 @@ function convertLinks($text)
         return $text;
 }
 
+function isIE9Browser()
+    {
+
+        $container  = strtolower($_SERVER['HTTP_USER_AGENT']);
+        $useragents = array('msie 9.0');
+
+        foreach ($useragents as $useragent) {
+            if (strstr($container, $useragent)) {
+                return TRUE;
+            }
+        }
+        return FALSE;
+    }
+
+function isIE10Browser()
+    {
+
+        $container  = strtolower($_SERVER['HTTP_USER_AGENT']);
+        $useragents = array('msie 10.0');
+
+        foreach ($useragents as $useragent) {
+            if (strstr($container, $useragent)) {
+                return TRUE;
+            }
+        }
+        return FALSE;
+    }
+
+function isBelowIEversion($version=8)
+    {
+        $userAgent = $_SERVER['HTTP_USER_AGENT'];
+        $versionRegex = "/msie [2-". ($version-1) ."]/i";
+        return (preg_match($versionRegex, $userAgent) && !preg_match('/Opera/i',$userAgent));
+    }
+
+function cleanStringContent($title)
+    {
+        $find    = array('ã¼', 'ã', 'ã–', 'ã¨', 'ã©', 'ã¤', 'ã¶', 'Ã¤');
+        $replace = array('u', 'U', 'U', 'e', 'e', 'ä', 'a', 'A');
+        $title   = mb_convert_encoding($title, "UTF-8");
+        $title   = str_replace($find, $replace, $title);
+        //replace non ASCII characters with NULL
+        $title = preg_replace('/[^(\x20-\x7F)]*/', NULL, $title);
+        return $title;
+    }
 	
 ?>

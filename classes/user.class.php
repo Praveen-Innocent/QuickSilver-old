@@ -41,23 +41,6 @@ class User extends Generic {
 	}
 
 	
-	 public function getSchoolWithKey($key) 
-    {
-			$key=mysql_real_escape_string($key);
-			$query=mysql_query("SELECT * FROM schools WHERE code='$key'");
-			if(mysql_num_rows($query)==1)
-			{
-				 $row=mysql_fetch_array($query);
-				 return $row;
-			}
-			else
-			{
-			return false;
-			}
-
-    }
-	
-	
 	public function isProfileComplete()
     {	
 		$uid = $_SESSION['uid'];
@@ -67,14 +50,6 @@ class User extends Generic {
 		else return false;
     }
 	
-	public function updateAllClassrooms($id,$parent_school) 
-    {
-			
-     		$r = mysql_query("UPDATE classes SET schoolid='$id' WHERE parent_school='$parent_school'");
-      		if($r) return true;
-      		else return false;
-
-    }
 
 	 public function isLoggedIn()
     {
@@ -110,11 +85,7 @@ class User extends Generic {
      $sql=mysql_query("SELECT uid FROM users WHERE username='$username'");
      $row=mysql_fetch_array($sql);
      $uid=$row['uid'];
-     //$friend_query=mysql_query("INSERT INTO friends(friend_one,friend_two,role)VALUES('$uid','$uid','me')");
-
      return $uid ;
-    
-
      }
      else
      {

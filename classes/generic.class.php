@@ -53,6 +53,22 @@ class Generic{
 		return $string;
 
 	}
+
+	public static function stripTags($input){
+        if(gettype($input) == "string"){
+            //	$pattern = '/<[\s\n\r]*(script|iframe)[\s\n\r]*>/i';
+            //	$input = preg_replace($pattern,"", $input);
+            $input = strip_tags($input);
+        }
+        return $input;
+    }
+    public static function stripNonAsciiCharacters($input){
+        if(gettype($input) == "string"){
+            setlocale(LC_CTYPE, 'en_US.UTF-8');
+            $input = iconv('UTF-8', "ASCII//IGNORE", $input);
+        }
+        return $input;
+    }
 }
 
 ?>
